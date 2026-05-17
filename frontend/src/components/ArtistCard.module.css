@@ -1,0 +1,121 @@
+.cardWrapper {
+  width: 100%;
+  max-width: 320px;
+  height: 450px;
+  perspective: 1200px;
+  margin: 15px auto;
+  cursor: pointer;
+  display: block;
+}
+
+.cardContent {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: var(--bg-surface);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
+
+.cardWrapper:hover .cardContent {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(255, 85, 0, 0.15);
+}
+
+.imageContainer {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.artistImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.cardWrapper:hover .artistImage {
+  transform: scale(1.08);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 20px 20px;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.6) 50%, transparent 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 200px;
+  transform: translateZ(20px);
+}
+
+.artistName {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0 0 4px 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  transform: translateZ(30px);
+}
+
+.artistGenre {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  margin-bottom: 16px;
+  transform: translateZ(25px);
+}
+
+.voteSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transform: translateZ(40px);
+}
+
+.voteCount {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.voteBtn {
+  background: var(--accent-color);
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 85, 0, 0.3);
+}
+
+.voteBtn:hover {
+  transform: scale(1.05);
+  background: #ff6600;
+  box-shadow: 0 8px 20px rgba(255, 85, 0, 0.4);
+}
+
+.voteBtn:active {
+  transform: scale(0.95);
+}

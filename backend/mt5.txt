@@ -1,0 +1,6 @@
+Name     : Name     : hy
+Type     : Forex Hedged USD
+Server   : MetaQuotes-Demo
+Login    : 107142508
+Password : 0kRxYg@d
+Investor : JnE*Lb0o

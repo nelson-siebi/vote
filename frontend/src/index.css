@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Inter:wght@400;500;700&display=swap');
+
+:root {
+  --bg-color: #f8fafc;
+  --bg-surface: #ffffff;
+  --text-primary: #0f172a; /* Slate 900 */
+  --text-secondary: #475569; /* Slate 600 */
+  --accent-color: #ff5500; /* Vibrant Orange */
+  --accent-secondary: #0f172a;
+  
+  --nav-bg: rgba(255, 255, 255, 0.90);
+  --border-light: rgba(15, 23, 42, 0.06);
+  
+  --shadow-float: 0 20px 40px -5px rgba(255, 85, 0, 0.15), 0 8px 16px -8px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: radial-gradient(#d4d4d8 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .logo {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-color); }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 80px 8% 0;
+  background: var(--bg-surface);
+  overflow: hidden;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 650px;
+  z-index: 10;
+  position: relative;
+}
+
+.hero-content h1 {
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  line-height: 1.05;
+  margin-bottom: 24px;
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: -0.04em;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #ff5500, #ff9900);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.hero-content p {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #ff5500, #ff9900);
+  color: #fff;
+  border: none;
+  padding: 16px 42px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(255, 85, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cta-button:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 35px rgba(255, 85, 0, 0.4);
+}
+
+.hero-3d-canvas {
+  flex: 1;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 55%;
+  z-index: 1;
+  mix-blend-mode: normal;
+}
+
+.canvas-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+  .hero-section { padding: 0 5%; }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    min-height: 100vh;
+    padding: 80px 24px 0;
+    text-align: center;
+    background: var(--bg-surface);
+  }
+
+  .hero-content {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .hero-content h1 { text-align: center; }
+  .hero-content p { 
+    margin-bottom: 40px; 
+    text-align: center;
+    background: transparent;
+    padding: 0;
+  }
+
+  .hero-3d-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 0;
+    z-index: 1;
+    opacity: 0.3; /* Adjusted so text is easily readable but 3D is visible */
+    pointer-events: none;
+    mix-blend-mode: normal;
+  }
+}
+
+/* Spinner Brutalist */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--text-primary);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+html { scroll-behavior: smooth; }

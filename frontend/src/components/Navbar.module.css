@@ -1,0 +1,122 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  background: var(--nav-bg) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.logo span {
+  color: var(--accent-color);
+}
+
+.desktopLinks {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.navItem {
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+}
+
+.navItem:hover {
+  color: var(--accent-color);
+  background: rgba(255, 85, 0, 0.08);
+}
+
+.navItemActive {
+  color: var(--accent-color);
+  background: rgba(255, 85, 0, 0.12);
+}
+
+.mobileToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.hamburgerLine {
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-primary);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 80px; /* Default height of navbar */
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 24px 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 9999; /* Higher than anything else */
+}
+
+.mobileNavItem {
+  display: block;
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: left;
+  text-decoration: none;
+  padding: 14px 20px;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.mobileNavItem:hover {
+  background: rgba(255, 85, 0, 0.08);
+  color: var(--accent-color);
+  padding-left: 28px;
+}
+
+@media screen and (max-width: 768px) {
+  .desktopLinks {
+    display: none;
+  }
+  .mobileToggle {
+    display: flex;
+  }
+}

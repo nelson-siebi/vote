@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Modèle pour un Artiste
+model Artist {
+  id          String   @id @default(uuid())
+  name        String
+  genre       String
+  bio         String?
+  imageUrl    String?
+  audioUrl    String?  // URL du fichier audio (extrait)
+  votes       Vote[]
+  voteCount   Int      @default(0) // Cache pour optimiser le tri
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Modèle pour un Vote (permet de tracer l'origine et éviter les spams)
+model Vote {
+  id        String   @id @default(uuid())
+  artistId  String
+  artist    Artist   @relation(fields: [artistId], references: [id], onDelete: Cascade)
+  ipAddress String?  // Adresse IP de l'utilisateur pour empêcher le spam
+  createdAt DateTime @default(now())
+}
