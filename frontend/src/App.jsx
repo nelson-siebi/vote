@@ -29,7 +29,8 @@ function App() {
 
   // Écoute globale des succès de paiement via Webhook
   useEffect(() => {
-    const socket = io('http://localhost:5000');
+    const socketUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+    const socket = io(socketUrl);
     
     socket.on('vote_success', (data) => {
       const myVotes = JSON.parse(localStorage.getItem('my_pending_votes') || '[]');

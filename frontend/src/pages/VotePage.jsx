@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Check, Music, Flame } from 'lucide-react';
 import useStore from '../store/useStore';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}/api`;
 
 function Stepper({ step }) {
   const steps = ['Votre vote', 'Paiement', 'Confirmation'];

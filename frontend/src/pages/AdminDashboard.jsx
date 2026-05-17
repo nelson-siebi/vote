@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Flame, Banknote, Eye, Mic, BarChart3, TrendingUp, Save, CheckCircle2, AlertCircle, Trash2, Edit3, X } from 'lucide-react';
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}/api`;
 
 function StatCard({ label, value, color, icon }) {
   return (
